@@ -173,10 +173,18 @@
         throw_unless(777, msg_value == player_initiator_bet);
         throw_unless(333, game_termination_unix_time <= now());
 
-        if () { ;; initiator wins
+        if (
+            (user_choice == 0 & platform_choice == 2) ||
+            (user_choice == 1 & platform_choice == 0) ||
+            (user_choice == 2 & platform_choice == 0)
+        ) { ;; initiator wins
             messages::send_empty(msg_value * 2 / 100 * 95, player_initiator, 0);
             return ();
-        } ifelse { ;; draw
+        } elseif (
+            (user_choice == 0 & platform_choice == 0) ||
+            (user_choice == 1 & platform_choice == 1) ||
+            (user_choice == 2 & platform_choice == 2)
+        ) { ;; draw
             messages::send_empty(msg_value, player_initiator, 0);
             messages::send_empty(msg_value, sender_address, 0);
             return ();
