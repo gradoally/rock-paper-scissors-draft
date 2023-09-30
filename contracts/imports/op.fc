@@ -1,0 +1,4 @@
+const op::game_with_platform = "op::game_with_platform"c;
+const op::start_game_with_user = "op::start_game_with_user"c;
+const op::return_tons = "op::return_tons"c;
+const op::end_game_with_user = "op::end_game_with_user"c;
